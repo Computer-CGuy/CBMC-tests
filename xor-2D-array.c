@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(){
-	short int arr1[] = {1,2,3,4,100};
+	short int arr1[] = {1,1,1,1,100};
 	short int arr2[] = {1,2,3,4,1000};
 	
 	// int N = 0b11100;
@@ -28,7 +28,7 @@ int main(){
 	// if((xorEd1!=1) && (xorEd2!=1)){
 	// 	flag = 1;
 	// }
-	assert((xorEd1!=101) || (xorEd2!=1001));
+	assert((xorEd1!=106) || (xorEd2!=1001));
 	// assert(flag == 1);
 
 
