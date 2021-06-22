@@ -15,13 +15,16 @@ At X=0, with __CPOVER_assume = 0 it's SATISFIABLE
 
 
 int main(){
-	int arr[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10000};//1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,100};
+	int arr[] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,\
+				1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10000,1,1};//1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,100};
 	
 	// int N = 0b11100;
-	int N = nondet_int();
+	int N1 = nondet_int();
+	int N2 = nondet_int();
 
-	__CPROVER_assume(N>0);
-	
+	__CPROVER_assume(N1>0);
+	__CPROVER_assume(N2>0);
+
 	int xorEd = 0;
 
 	// for(int x=0;x<(sizeof(arr)/sizeof(arr[0]));x++){
@@ -33,6 +36,15 @@ int main(){
 			xorEd = (xorEd^arr[x]);
 		}
 	}
+	for(int x=32;x<32*2;x++){
+		printf("%d %d\n",(N2&(1<<x)),arr[x]);
+		// if((N&(1<<x))!=0){
+		if((N2&(1<<x))!=0){
+		// if(N%x==0){
+			xorEd = (xorEd^arr[x]);
+		}
+	}
+
 	int flag = 0;
 
 	if((xorEd)!=10000){
