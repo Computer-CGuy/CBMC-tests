@@ -5,7 +5,7 @@
 int main(){
 	
 
-	int n = 10;
+	int n = 5;
 
 	int arr[n];
 	
@@ -13,17 +13,16 @@ int main(){
 
 	int xorEd = 0;
 	
-	int a = nondet_uint();
-	__CPROVER_assume(a!=0);
-	for (int i = 0; i < 1; ++i)
+	for (int i = 0; i < n; ++i)
 	{
-		arr[i]=a+i;
+		arr[i]=nondet_uint();
+		__CPROVER_assume(arr[i]!=0);
 		xorEd^=arr[i];
 	}
 
 	int flag = 0;
 
-	if((xorEd)!=1){
+	if((xorEd)!=0){
 		flag = 1;
 	}
 	assert(flag == 1);
