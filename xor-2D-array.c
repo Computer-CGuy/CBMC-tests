@@ -13,24 +13,7 @@ int main(){
 	int xorEd1 = 0;
 	int xorEd2 = 0;
 
-	for(int x=0;x<5;x++){const equihash = require('equihash')('khovratovich');
-
-// input seed for equihash (up to 512 bits)
-const input = crypto.createHash('sha256').update('test1234', 'utf8').digest();
-const options = {
-  n: 90,
-  k: 5
-}
-
-equihash.solve(input, options, (err, proof) => {
-  if(err) {
-    return console.log('Failed to generate proof:', err);
-  }
-
-  console.log('Equihash proof:', proof)
-  console.log('Valid proof? ', equihash.verify(input, proof));
-});
-
+	for(int x=0;x<5;x++){
 		// printf("%d %d\n",(N&(1<<x)),arr[x]);
 		// if((N&(1<<x))!=0){
 		if((N&(1<<x))!=0){
