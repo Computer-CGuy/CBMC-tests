@@ -1,4 +1,4 @@
-"""
+"""	
 roll/update
 According to https://github.com/digitalbazaar/equihash/search?q=SEED_LENGTH
 The block_header is 16*32 = 512 = 4*128
