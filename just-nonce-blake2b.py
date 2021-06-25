@@ -16,6 +16,9 @@ Just one roll then
 from utils import G,sigma,iv
 import numpy as np
 
+import warnings
+warnings.filterwarnings("ignore")
+
 nonce = 0xff # assumption
 
 
@@ -32,7 +35,7 @@ def processblock(m):
 	
 	v[12-8]^=np.array([18])
 	v[14]=~v[14]
-	print(v)
+	# print(v)
 	for i in range(12):
 		G(v,0, 4, 8,  12, m[sigma[i][0]], m[sigma[i][1]]);
 		G(v,1, 5, 9,  13, m[sigma[i][2]], m[sigma[i][3]]);
@@ -43,18 +46,35 @@ def processblock(m):
 		G(v,1, 6, 11, 12, m[sigma[i][10]], m[sigma[i][11]]);
 		G(v,2, 7, 8,  13, m[sigma[i][12]], m[sigma[i][13]]);
 		G(v,3, 4, 9,  14, m[sigma[i][14]], m[sigma[i][15]]);
+	return v[0:8]^v[8:16]
 	print(v)
 	print("done")
 
+def uint8_t(val):
+	# print(val.astype(np.uint8))
+	return val&nped(0xFFFFFFFF)#val.astype(np.uint8)#&0xFFFFFFFF
+def nped(val):
+	return np.array(val, np.uint64)
 def hash_block(l,nonce):
 	m = np.zeros((16,), np.uint64)
 	m[:2]=0xfffff
+	# save = []
+	al =[]
 	for num in l:
 		m[2]=((num<<8)+nonce)
-		processblock(m)
-		break
+		V = (processblock(m))
 
+		l = [[[0, 0], [0, 8], [0, 16], [0, 24], [0, 32], [0, 40], [0, 48], [0, 56], [1, 0], [1, 8], [1, 16], [1, 24]], [[1, 32], [1, 40], [1, 48], [1, 56], [2, 0], [2, 8], [2, 16], [2, 24], [2, 32], [2, 40], [2, 48], [2, 56]], [[3, 0], [3, 8], [3, 16], [3, 24], [3, 32], [3, 40], [3, 48], [3, 56], [4, 0], [4, 8], [4, 16], [4, 24]], [[4, 32], [4, 40], [4, 48], [4, 56], [5, 0], [5, 8], [5, 16], [5, 24], [5, 32], [5, 40], [5, 48], [5, 56]], [[6, 0], [6, 8], [6, 16], [6, 24], [6, 32], [6, 40], [6, 48], [6, 56], [7, 0], [7, 8], [7, 16], [7, 24]]]
 
+		for p in l:
+			save = []
+			for q in p:
+				save.append(uint8_t(V[q[0]]>>nped(q[1])))
+			al.append(save)
+			# uint64_t(v[0])
+		# print(processblock(m).astype(np.uint64))
+		# break
+	print(al)
 
 
 
