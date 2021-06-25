@@ -19,12 +19,6 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 
-nonce = 0xff # assumption
-
-
-
-buffer = np.zeros((128,),dtype=np.uint32)
-
 
 
 def processblock(m):
@@ -35,7 +29,8 @@ def processblock(m):
 	
 	v[12-8]^=np.array([18])
 	v[14]=~v[14]
-	# print(v)
+	print(v.tolist())
+
 	for i in range(12):
 		G(v,0, 4, 8,  12, m[sigma[i][0]], m[sigma[i][1]]);
 		G(v,1, 5, 9,  13, m[sigma[i][2]], m[sigma[i][3]]);
