@@ -1,3 +1,5 @@
+cbmc-just-nonce-blake2b.c --dimacs --outfile test2.cnf
+
 # Tests
 
 1) xor-array-cmbc.c SUCCESS

@@ -1,0 +1,217 @@
+c BreakID not compiled in, disabling
+c CryptoMiniSat version 5.8.0
+c CMS Copyright Mate Soos (soos.mate@gmail.com)
+c CMS SHA revision 6477e8bc43b0fda7038965bb148b64b8637c804b
+c CMS is GPL licensed due to M4RI being linked. Build without M4RI to get MIT version
+c Using VMTF code by Armin Biere from CaDiCaL
+c Using Yalsat by Armin Biere, see Balint et al. Improving implementation of SLS solvers [...], SAT'14
+c Using WalkSAT by Henry Kautz, see Kautz and Selman Pushing the envelope: planning, propositional logic, and stochastic search, AAAI'96,
+c Using code from 'When Boolean Satisfiability Meets Gauss-E. in a Simplex Way'
+c       by C.-S. Han and J.-H. Roland Jiang in CAV 2012. Fixes by M. Soos
+c Using CCAnr from 'CCAnr: A Conf. Checking Based Local Search Solver [...]'
+c       by Shaowei Cai, Chuan Luo, and Kaile Su, SAT 2015
+c CMS compilation env CMAKE_CXX_COMPILER = /usr/lib/ccache/bin/c++ | CMAKE_CXX_FLAGS =  -fvisibility=hidden -Wall -Wextra -Wunused -Wsign-compare -fno-omit-frame-pointer -Wtype-limits -Wuninitialized -Wno-deprecated -Wstrict-aliasing -Wpointer-arith -Wpointer-arith -Wformat-nonliteral -Winit-self -Wparentheses -Wunreachable-code -g -Wno-class-memaccess -mpopcnt -msse4.2 -ggdb3 -Wlogical-op -Wrestrict -Wnull-dereference -Wdouble-promotion -Wshadow -Wformat=2 -Wextra-semi -pedantic | COMPILE_DEFINES =  -DEXTENDED_FEATURES -DUSE_GAUSS -DUSE_ZLIB -DYALSAT_FPU -DUSE_M4RI | STATICCOMPILE = ON | ONLY_SIMPLE = OFF | Boost_FOUND = TRUE | STATS = OFF | SQLITE3_FOUND = FALSE | ZLIB_FOUND = TRUE | VALGRIND_FOUND =  | ENABLE_TESTING = OFF | M4RI_FOUND = TRUE | NOM4RI = OFF | SLOW_DEBUG = OFF | ENABLE_ASSERTIONS = ON | PYTHON_EXECUTABLE = /usr/bin/python2.7 | PYTHON_LIBRARY = PYTHON_LIBRARY-NOTFOUND | PYTHON_INCLUDE_DIRS =  | MY_TARGETS =  | LARGEMEM = OFF | LIMITMEM = OFF | BREAKID_LIBRARIES =  | BREAKID-VER = . | BOSPHORUS_LIBRARIES =  | BOSPH-VER = . | compilation date time = Jul  6 2020 23:53:28
+c CMS compiled with gcc version 10.1.0
+c Executed with command line: cryptominisat5 test-100val.cnf
+c Reading file 'test-100val.cnf'
+c -- header says num vars:        3785152
+c -- header says num clauses:    18524581
+c -- clauses added: 18524581
+c -- xor clauses added: 0
+c -- vars added 3785152
+c Parsing time: 6.72 s
+c clause size stats. size3: 15017439 size4: 1568766 size5: 0 larger: 6849
+c [find&init matx] XORs not updated, and either (XORs are not detached OR assumps does not contain clash variable) -> or not performing matrix init
+c [polar] polar mode: auto branch strategy num: 0 branch strategy: VSIDSX
+c  res  pol bran  nres  conf freevar  IrrL  IrrB l/longC  l/allC RedL0 RedL1 RedL2  RedB l/longC  l/allC
+c glue auto  vsx    78  8193 3761219 16593K 1927K    3.12    3.00   457  1661  5843   168  228.05  223.38
+c geom auto  vsx   119 16386 3761212 16593K 1927K    3.12    3.00  1145  3328  9936   334  157.32  153.80
+c glue auto  vsx   144   24K 3761212 16593K 1927K    3.12    3.00  1746  4535 16223   432  164.17  161.12
+c glue auto  vsx   167   32K 3760516 16593K 1927K    3.12    3.00  4145  5774 15486   516  256.86  251.78
+c glue auto  vsx   190   40K 3760516 16593K 1927K    3.12    3.00  5994  5858   21K   559  320.62  315.40
+c glue auto  vsx   225   49K 3760516 16593K 1927K    3.12    3.00  6403  7835   20K   669  333.42  327.13
+c glue auto  vsx   242   57K 3760516 16593K 1927K    3.12    3.00  7447  8538   26K   703  402.77  396.29
+c glue auto  vsx   253   65K 3760516 16593K 1927K    3.12    3.00  9265  9358   24K   739  413.65  406.76
+c recursive minimization cost OK: 143887Kcost/(% lits removed)
+c more minimization effectiveness low: 0.00 % lits removed --> disabling
+c [branch] rebuilding order heap for all branchings. Current branching: vsid
+c --> Executing strategy token: handle-comps
+c --> Executing strategy token: scc-vrepl
+c [scc] new: 16 BP 13M T: 0.45
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 18 T: 0.71 T-out: N w-visit: 7570304
+c --> Executing strategy token: intree-probe
+c [scc] new: 20827 BP 13M T: 0.47
+c [vrep] vars 19119 lits 1195919 rem-bin-cls 79892 rem-long-cls 22 BP 61M T: 1.75
+c [intree] too expensive or depth exceeded during SCC: aborting
+c --> Executing strategy token: sub-str-cls-with-bin
+c [distill] watch-based irred--  cl tried  2411569 cl-sh    28 cl-rem 2792 lit-rem     28 T: 2.92 T-out: Y
+c [distill] watch-based   red--  cl tried    18962 cl-sh    20 cl-rem    0 lit-rem     21 T: 0.04 T-out: N
+c --> Executing strategy token: distill-cls
+c [distill] long useful: 1772/712410/32926120 lits-rem: 2838 0-depth-assigns: 15284 T: 4.50 T-out: Y
+c --> Executing strategy token: scc-vrepl
+c [scc] new: 14 BP 13M T: 0.50
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 40 T: 0.75 T-out: N w-visit: 7570304
+c --> Executing strategy token: str-impl
+c [impl str] lit bin: 0 set-var: 0 T: 0.42 T-out: N T-r: 74.67% w-visit: 7570304
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 0 T: 0.74 T-out: N w-visit: 7570304
+c --> Executing strategy token: breakid
+c --> Executing OCC strategy token(s): 'occ-backw-sub-str,occ-clean-implicit,occ-bve,occ-bva,occ-ternary-res,occ-xor,'
+c [occ] mem usage for occur   1065 MB
+c [occ] mem usage for occur    289 MB
+c Mem for watch alloc      : 547         MB (23.07     %)
+c Mem for watch array      : 173         MB (7.31      %)
+c --> Executing OCC strategy token: occ-backw-sub-str
+c [occ-backw-sub-str-long-w-bins] subs: 542 str: 16 tried: 56135 0-depth ass: 0 T: 0.05 T-out: Y T-r: -0.00%
+c [occ-sub-long-w-long] rem cl: 375 tried: 2787203/16457459 (16.9%) T: 2.13 T-out: Y T-r: -0.00%
+c [occ-sub-str-long-w-long] sub: 238 str: 40 tried: 2328289/16457459 (14.1)  T: 2.27 T-out: Y T-r: -0.00%
+c [occ-sub-str-w-added-long]  sub: 0 str: 0 0-depth ass: 0 T: 0.00 T-out: Y T-r: 100.00%
+c --> Executing OCC strategy token: occ-clean-implicit
+c --> Executing OCC strategy token: occ-bve
+c [occ-empty-res] Empty resolvent elimed: 205530 T: 1.78 T-out: Y
+c [occ-bve] iter v-elim 971133
+c cl_inc_rate=0.8, var_dec_rate=1.4 (grow=0)
+c Reduced to 2557092 vars, 15237938 cls (grow=0)
+c [occ-bve] iter v-elim 51964
+c cl_inc_rate=1.0, var_dec_rate=1.0 (grow=8)
+c Reduced to 2505128 vars, 15300406 cls (grow=8)
+c [occ-bve] iter v-elim 19187
+c cl_inc_rate=1.0, var_dec_rate=1.0 (grow=16)
+c Reduced to 2485941 vars, 15548656 cls (grow=16)
+c x n vars       : 2485941
+c  #try to eliminate: 9281K
+c  #var-elim        : 1042K
+c  #T-o: N
+c  #T-r: 89.11%
+c  #T  : 64.84
+c [occur] 15.95 is overhead
+c [occur] link-in T: 15.95 cleanup T: 0.00
+c --> Executing OCC strategy token: occ-bva
+c [occ-bva] global numcalls: 0
+c --> Executing OCC strategy token: occ-ternary-res
+c [occ-ternary-res] Ternary res-tri: 108 res-bin: 0 T: 2.64 T-out: Y T-r: -57.47%
+c --> Executing OCC strategy token: occ-xor
+c [occ-xor] sort occur list T: 1.09
+c [xor-clean-equiv] removed equivalent xors: 0 left with: 842165
+c [occ-xor] found 842165 avg sz 3.0 min sz  3 max sz  6 T: 16.54 T-out: N T-r: 72.61%
+c [xor-together] xored together: 775408 orig xors: 842165 new xors: 66757 T: 3.13
+c [xor-rem-unconnected] left with 66725 xors from 66757 non-empty xors T: 0.05
+c [xor-m4ri] Sum vars in blocks: 856575
+c skipping matrix 66725 x 856576 size:57155
+c [xor-m4ri] cut into 1 blcks.  Vars in blcks: 856575 T: 0.12
+c [xor-m4ri] extr info.  unit: 0 bin: 0 0-depth-ass: 0 T: 0.01
+c --> Executing strategy token: card-find
+c --> Executing strategy token: cl-consolidate
+c [mem] consolidate  old-sz:  781M new-sz:  560M new bits offs: 27 T: 1.42
+c --> Executing strategy token: str-impl
+c [impl str] lit bin: 144 set-var: 156 T: 0.50 T-out: N T-r: 87.20% w-visit: 7570304
+c --> Executing strategy token: sub-str-cls-with-bin
+c [distill] watch-based irred--  cl tried  1688248 cl-sh     0 cl-rem  207 lit-rem      0 T: 2.38 T-out: Y
+c [distill] watch-based   red--  cl tried    12460 cl-sh     0 cl-rem    0 lit-rem      0 T: 0.02 T-out: N
+c --> Executing strategy token: distill-cls
+c [distill] long useful: 13664/516094/30329202 lits-rem: 7964 0-depth-assigns: 386 T: 3.74 T-out: Y
+c --> Executing strategy token: scc-vrepl
+c [scc] new: 115 BP 10M T: 0.52
+c --> Executing strategy token: renumber
+c [xor-clean] T: 0.12
+c [xor-clean] T: 0.12
+c [renumber] T: 5.24
+c --> Executing strategy token: bosphorus
+c --> Executing strategy token: sls
+c --> Executing strategy token: lucky
+c [consolidate] mini T: 0.00
+c global_timeout_multiplier: 3.3000
+c [branch] rebuilding order heap for all branchings. Current branching: vsid
+c clause size stats. size3: 13137992 size4: 1820518 size5: 121255 larger: 60591
+c [find&init matx] performing matrix init
+c [xor-rem-unconnected] left with 842169 xors from 842169 non-empty xors T: 0.24
+c [xor-together] xored together: 15 orig xors: 842169 new xors: 842154 T: 2.08
+c [xor-rem-unconnected] left with 842154 xors from 842154 non-empty xors T: 0.22
+c [xor-clean-equiv] removed equivalent xors: 32 left with: 842122
+c [matrix] unused xors from cleaning: 0
+c [matrix] Too many rows in matrix: 842090 -> set usage to NO
+c [matrix] UNused matrix    842090 x1631935  density:0.0006  xorlen avg:  3.02
+c [matrix] unused matrices: 33 of which too few rows: 32
+c [matrix] Using 0 matrices recoverd from 0 xors T: 4.64 T-out: N
+c [branch] selection: MAPLE1+MAPLE2+VSIDS2+MAPLE1+MAPLE2+VSIDS1 -- total: 6
+c [branch] adjusting to: mapl var_decay_max:0.70 var_decay:0.70 descr: MAPLE1
+c [polar] polar mode: auto branch strategy num: 1 branch strategy: MAPLE1
+c luby auto  mp1   276   73K 2485592 15140K  352K    3.16    3.13  6349  6973 13194   134   40.02   39.82
+c luby auto  mp1   308   81K 2485591 15140K  352K    3.16    3.13  7207  6619 16573   136   78.31   77.97
+c luby auto  mp1   326   90K 2485591 15140K  352K    3.16    3.13  7880  7071 16214   144  111.06  110.56
+c luby auto  mp1   358   98K 2485591 15140K  352K    3.16    3.13  8271  8405   22K   152  110.31  109.89
+c luby auto  mp1   383  106K 2485591 15140K  352K    3.16    3.13  8769  9198 18810   162   95.28   94.87
+c luby auto  mp1   384  114K 2485579 15140K  352K    3.16    3.13  9773  8790   26K   164  160.99  160.41
+c luby auto  mp1   415  122K 2485578 15140K  352K    3.16    3.13 11085  8775   23K   173  157.47  156.86
+c luby auto  mp1   446  131K 2485578 15140K  352K    3.16    3.13 11777  9082   31K   176  163.34  162.80
+c luby auto  mp1   473  139K 2485578 15140K  352K    3.16    3.13 12354 11172   22K   189  156.28  155.65
+c luby auto  mp1   505  147K 2485578 15140K  352K    3.16    3.13 13729 10850   29K   193  153.66  153.13
+c luby auto  mp1   511  155K 2485578 15140K  352K    3.16    3.13 14189 10623   25K   193  129.58  129.09
+c luby auto  mp1   512  163K 2485578 15140K  352K    3.16    3.13 14823  9694   33K   194  172.13  171.57
+c recursive minimization cost OK: 73768Kcost/(% lits removed)
+c [branch] rebuilding order heap for all branchings. Current branching: mapl
+c --> Executing strategy token: handle-comps
+c --> Executing strategy token: scc-vrepl
+c [scc] new: 128 BP 10M T: 0.50
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 14037 T: 0.75 T-out: N w-visit: 4971184
+c --> Executing strategy token: intree-probe
+c [scc] new: 140 BP 10M T: 0.49
+c [vrep] vars 137 lits 4751 rem-bin-cls 558 rem-long-cls 31 BP 45M T: 3.68
+c [scc] new: 0 BP 10M T: 0.50
+c [vrep] vars 0 lits 0 rem-bin-cls 0 rem-long-cls 0 BP 45M T: 3.67
+c [intree] too expensive or depth exceeded during SCC: aborting
+c --> Executing strategy token: sub-str-cls-with-bin
+c [distill] watch-based irred--  cl tried   903084 cl-sh    19 cl-rem  128 lit-rem     19 T: 1.84 T-out: Y
+c [distill] watch-based   red--  cl tried    30356 cl-sh    33 cl-rem    0 lit-rem     33 T: 0.03 T-out: N
+c --> Executing strategy token: distill-cls
+c [distill] long useful: 14010/591464/30279964 lits-rem: 9720 0-depth-assigns: 758 T: 4.18 T-out: Y
+c --> Executing strategy token: scc-vrepl
+c [scc] new: 0 BP 10M T: 0.50
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 5 T: 0.74 T-out: N w-visit: 4971184
+c --> Executing strategy token: str-impl
+c [impl str] lit bin: 22022 set-var: 22038 T: 0.45 T-out: N T-r: 88.50% w-visit: 4971184
+c --> Executing strategy token: sub-impl
+c [impl sub] bin: 0 T: 0.74 T-out: N w-visit: 4971184
+c --> Executing strategy token: breakid
+c --> Executing OCC strategy token(s): 'occ-backw-sub-str,occ-clean-implicit,occ-bve,occ-bva,occ-ternary-res,occ-xor,'
+c [occ] mem usage for occur    913 MB
+c [occ] mem usage for occur    190 MB
+c Mem for watch alloc      : 875         MB (28.20     %)
+c Mem for watch array      : 113         MB (3.66      %)
+c --> Executing OCC strategy token: occ-backw-sub-str
+c [occ-backw-sub-str-long-w-bins] subs: 1 str: 193 tried: 799196 0-depth ass: 0 T: 0.13 T-out: Y T-r: -0.01%
+c [occ-sub-long-w-long] rem cl: 286 tried: 2718976/15139804 (18.0%) T: 2.09 T-out: Y T-r: -0.00%
+c [occ-sub-str-long-w-long] sub: 197 str: 448 tried: 2492163/15139804 (16.5)  T: 2.64 T-out: Y T-r: -0.00%
+c [occ-sub-str-w-added-long]  sub: 0 str: 0 0-depth ass: 0 T: 0.00 T-out: Y T-r: 100.00%
+c --> Executing OCC strategy token: occ-clean-implicit
+c --> Executing OCC strategy token: occ-bve
+c [occ-empty-res] Empty resolvent elimed: 11 T: 1.69 T-out: N
+c [occ-bve] iter v-elim 42025
+c cl_inc_rate=1.0, var_dec_rate=1.0 (grow=0)
+c Reduced to 2420988 vars, 14857659 cls (grow=0)
+c [occ-bve] iter v-elim 130
+c cl_inc_rate=1.0, var_dec_rate=1.0 (grow=8)
+c Reduced to 2420858 vars, 14857661 cls (grow=8)
+c [occ-bve] iter v-elim 511
+c cl_inc_rate=1.0, var_dec_rate=1.0 (grow=16)
+c Reduced to 2420347 vars, 14861765 cls (grow=16)
+c x n vars       : 2420347
+c  #try to eliminate: 7399K
+c  #var-elim        :   42K
+c  #T-o: N
+c  #T-r: 91.27%
+c  #T  : 55.30
+c [occur] 14.04 is overhead
+c [occur] link-in T: 14.04 cleanup T: 0.00
+c --> Executing OCC strategy token: occ-bva
+c [occ-bva] global numcalls: 1
+c --> Executing OCC strategy token: occ-ternary-res
+c [occ-ternary-res] Ternary res-tri: 539 res-bin: 0 T: 2.88 T-out: Y T-r: -44.46%
+c --> Executing OCC strategy token: occ-xor
+c [occ-xor] sort occur list T: 1.10
+c [xor-clean-equiv] removed equivalent xors: 0 left with: 826219
+c [occ-xor] found 826219 avg sz 3.0 min sz  3 max sz  6 T: 18.48 T-out: N T-r: 73.32%
